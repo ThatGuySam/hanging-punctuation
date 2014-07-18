@@ -6,9 +6,9 @@ logs
 *.log
 
 # Dependency directory
-bower_components
 node_modules/
 components/
+bower_components/
 
 # Compile directories
 www/
