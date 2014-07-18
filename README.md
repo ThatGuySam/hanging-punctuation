@@ -88,5 +88,3 @@ Thanks for considering contributing! There’s information about how to [get sta
 [The MIT License (MIT)](LICENSE.md)
 
 Copyright © 2014 [Kenneth Ormandy](http://kennethormandy.com) & [Chloi Inc.](http://chloi.io)
-
-```
