@@ -2,7 +2,7 @@
   "name": "hanging-punctuation",
   "repo": "kennethormandy/hanging-punctuation",
   "description": "A polyfill for proper hanging punctuation in CSS.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "hanging-punctuation.js",
   "scripts": [
     "hanging-punctuation.js"

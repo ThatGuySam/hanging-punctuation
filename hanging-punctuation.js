@@ -1,5 +1,5 @@
 /*!
- * Hanging Punctuation v0.1.1
+ * Hanging Punctuation v0.2.0
  * https://github.com/kennethormandy/hanging-punctuation
  * MIT License
  */

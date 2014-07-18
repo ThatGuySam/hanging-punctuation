@@ -17,7 +17,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/hanging-punctuation are greatly appriciated.\" && exit 1",
     "concat": "cat node_modules/stylefill/js/stylefill.js hanging-punctuation.js >> hanging-punctuation.min.js",
-    "minify": "minify hanging-punctuation.min.js"
+    "minify": "minify hanging-punctuation.min.js",
+    "build": "npm run concat && npm run minify"
   },
   "dependencies": {
     "stylefill": "git://github.com/kennethormandy/stylefill"
