@@ -5,14 +5,13 @@
 logs
 *.log
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directory
-node_modules
-components
 bower_components
+node_modules/
+components/
 
 # Compile directories
 www/
 _book/
+build/
+dist/
