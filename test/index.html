@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hanging Punctuation</title>
+    <link href="main.css" rel="stylesheet" />
+    <link href="test.css" rel="stylesheet" />
+    <script src="../node_modules/stylefill/js/stylefill.js"></script>
+    <script src="../hanging-punctuation.js"></script>
+  </head>
+  <body>
+    <article>
+      <section>
+        <p>Without hanging punctuation:</p>
+        <p><mark>“</mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
+        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
+        tincidunt. Donec luctus feugiat enim ac dapibus.<mark>”</mark></p>
+      </section>
+      <section class="hardcoded">
+        <p>With hanging punctuation (actual character):</p>
+        <p><q><mark>“</mark>Lorem ipsum dolor sit amet,<mark>”</mark></q> consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        <q><mark>“</mark>This works also in the middle of the text.<mark>”</mark> Try to resize the
+        window to bring this quote to the left border.</q>
+        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
+        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
+        tincidunt. Donec luctus feugiat enim ac dapibus.</q></p>
+      </section>
+      <section class="pseudo">
+        <p>With hanging punctuation (pseudo-element):</p>
+        <p><q>Lorem ipsum dolor sit amet,</q> consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        <q>This works also in the middle of the text. Try to resize the
+        window to bring this quote to the left border.</q>
+        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
+        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
+        tincidunt. Donec luctus feugiat enim ac dapibus.</q></p>
+      </section>
+    </article>
+  </body>
+</html>

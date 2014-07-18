@@ -1,0 +1,23 @@
+{
+  "name": "hanging-punctuation",
+  "version": "0.1.0",
+  "description": "Polyfills proper hanging punctuation in CSS.",
+  "homepage": "https://github.com/kennethormandy/hanging-punctuation",
+  "author": "Kenneth Ormandy <kenneth@chloi.io> (http://kennethormandy.com)",
+  "license": "MIT",
+  "private": true,
+  "repository": "git@github.com:kennethormandy/hanging-punctuation.git",
+  "keywords": [
+    "type",
+    "typography",
+    "css",
+    "stylefill",
+    "punctuation"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified…yet! Pull requests on kennethormandy/hanging-punctuation are greatly appriciated.\" && exit 1"
+  },
+  "dependencies": {
+    "stylefill": "git://github.com/kennethormandy/stylefill"
+  }
+}

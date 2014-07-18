@@ -1,0 +1,55 @@
+/* Borrowed as a starting place: http://git.io/LajHVQ */
+
+body {
+  font-family: Georgia, serif;
+  font-size: 1.33em;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 0 5em;
+  margin: 0;
+}
+
+article {
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 2em 0;
+  border-left: 1px solid tomato;
+  border-right: 1px solid tomato;
+
+}
+
+article p {
+  color: #666;
+}
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+q:before {
+  content: open-quote;
+  background: tomato;
+}
+
+q:after {
+  content: close-quote;
+  background: tomato;
+}
+
+.hardcoded q {
+  quotes: "" "" "" "";
+}
+
+.hardcoded q:before,
+.hardcoded q:after {
+  content: "";
+  content: none;
+  background: tomato;
+}
+
+article q {
+}
+
+article mark {
+  background: tomato;
+}
