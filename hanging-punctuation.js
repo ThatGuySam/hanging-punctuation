@@ -4,10 +4,33 @@
  * MIT License
  */
 
-var typo;
+(function(document, window) {
 
-typo = {
-  hangingPunctuation: function(rule) {
+  'use strict';
+
+  /**
+   * Debounce Event – http://davidwalsh.name/function-debounce
+   */
+  var debounce = function(func, wait, immediate) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  };
+
+  /**
+   * Hanging Punctuation
+   */
+  var hangingPunctuation = function(rule) {
+
     var els
       , elsCount
       , widthCache = {};
@@ -32,11 +55,12 @@ typo = {
     // ,stopsAndCommas: [0x2C, 0x2E, 0x060C, 0xAB, 0x3001, 0x3002, 0xFF0C, 0xFF0E, 0xFE50, 0xFE51, 0xFE52, 0xFF61, 0xFF64]
 
     while(elsCount-- > 0) {
-    	var cacheKey
+      var cacheKey
         , el
         , elContent
         , elFirstChar
         , elLastChar
+        , elStyle
         , tmp
         , left = 0
         , top
@@ -51,7 +75,7 @@ typo = {
       if(rule.value === 'none') {
 
       } else if(rule.value === 'first') {
-        if(elFirstChar.match(/\“|”/) !== null) { // Need to replace this with appropriate Unicode range
+        if(elFirstChar.match(/\“|\”/) !== null) { // Need to replace this with appropriate Unicode range
           cacheKey = elStyle.fontWeight + ' ' +
                      elStyle.fontSize + ' ' +
                      elStyle.fontFamily + ' ' +
@@ -109,8 +133,13 @@ typo = {
     }
 
   }
-};
 
-stylefill.init({
-  'hanging-punctuation' : typo.hangingPunctuation
-});
+  if(!window.onresize) {
+    window.onresize = debounce(stylefill.runFills, 75);
+  }
+
+  stylefill.init({
+    'hanging-punctuation' : hangingPunctuation
+  });
+
+}(document, window));
