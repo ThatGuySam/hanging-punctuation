@@ -111,8 +111,7 @@
             el.parentElement.removeChild(el.previousElementSibling);
           }
 
-          console.log(elParent);
-          console.log(left - width - 1, elParent.getBoundingClientRect().left);
+          // console.log(left - width - 1, elParent.getBoundingClientRect().left);
           if(left - width - 1 <= elParent.getBoundingClientRect().left) {
             top = el.getBoundingClientRect().top;
             el.style.marginLeft = -width + 'px';
