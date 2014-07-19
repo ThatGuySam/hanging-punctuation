@@ -107,8 +107,8 @@
           elParent.removeChild(tmp);
           tmp = null;
 
-          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper', true)) {
-            el.parentElement.removeChild(el.previousElementSibling);
+          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper')) {
+            elParent.removeChild(el.previousElementSibling);
           }
 
           // console.log(left - width - 1, elParent.getBoundingClientRect().left);
