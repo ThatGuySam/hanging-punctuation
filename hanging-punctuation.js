@@ -107,10 +107,11 @@
           elParent.removeChild(tmp);
           tmp = null;
 
-          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper', '')) {
+          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper', true)) {
             el.parentElement.removeChild(el.previousElementSibling);
           }
 
+          console.log(elParent);
           console.log(left - width - 1, elParent.getBoundingClientRect().left);
           if(left - width - 1 <= elParent.getBoundingClientRect().left) {
             top = el.getBoundingClientRect().top;
@@ -118,8 +119,8 @@
 
             if(top !== el.getBoundingClientRect().top) {
               var br = document.createElement('br');
-              br.setAttribute('data-hangPunctHelper', '');
-              el.insertBefore(br, el.firstChild);
+              br.setAttribute('data-hangPunctHelper', true);
+              elParent.insertBefore(br, el);
             }
           } else {
             el.style.marginLeft = 0;
@@ -137,7 +138,7 @@
   }
 
   if(!window.onresize) {
-    window.onresize = debounce(stylefill.runFills, 75);
+    window.onresize = debounce(stylefill.runFills, 100);
   }
 
   stylefill.init({
