@@ -57,6 +57,7 @@
     while(elsCount-- > 0) {
       var cacheKey
         , el
+        , elParent
         , elContent
         , elFirstChar
         , elLastChar
@@ -67,6 +68,7 @@
         , width;
 
       el = els[elsCount];
+      elParent = el.parentElement;
       elContent = el.textContent;
       elFirstChar = elContent[0];
       elLastChar = elContent[elContent.length - 1]
@@ -75,7 +77,7 @@
       if(rule.value === 'none') {
 
       } else if(rule.value === 'first') {
-        if(elFirstChar.match(/\“|\”/) !== null) { // Need to replace this with appropriate Unicode range
+        if(elFirstChar.match(/\“/) !== null) { // Need to replace this with appropriate Unicode range
           cacheKey = elStyle.fontWeight + ' ' +
                      elStyle.fontSize + ' ' +
                      elStyle.fontFamily + ' ' +
@@ -96,31 +98,31 @@
           // This is the “true” offset in case of multiline elements
           // see http://stackoverflow.com/q/995838/113195
           tmp = document.createElement('span');
-          tmp.innerHTML = '\u00A0';
+          tmp.innerHTML = elFirstChar;
           tmp.style.display = 'inline';
-          el.insertBefore(tmp, el.firstChild);
+          elParent.insertBefore(tmp, el);
 
           // http://stackoverflow.com/a/18953277/864799
-          var left = tmp.getBoundingClientRect().left;
-          el.removeChild(tmp);
+          left = tmp.getBoundingClientRect().left;
+          elParent.removeChild(tmp);
           tmp = null;
 
-          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper')) {
+          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper', '')) {
             el.parentElement.removeChild(el.previousElementSibling);
           }
 
-          if(left - width - 1 <= el.parentElement.getBoundingClientRect().left) {
+          console.log(left - width - 1, elParent.getBoundingClientRect().left);
+          if(left - width - 1 <= elParent.getBoundingClientRect().left) {
             top = el.getBoundingClientRect().top;
             el.style.marginLeft = -width + 'px';
 
             if(top !== el.getBoundingClientRect().top) {
               var br = document.createElement('br');
-              br.setAttribute('data-hangPunctHelper');
+              br.setAttribute('data-hangPunctHelper', '');
               el.insertBefore(br, el.firstChild);
             }
           } else {
             el.style.marginLeft = 0;
-            // el.style.color = 'green';
           }
 
         } else {
