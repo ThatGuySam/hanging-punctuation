@@ -1,7 +1,3 @@
-article {
-  hanging-punctuation: none;
-}
-
 .pseudo q:before,
 .pseudo q:after {
   hanging-punctuation: first;
