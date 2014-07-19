@@ -1,9 +1,18 @@
+.hardcoded--inline q {
+  hanging-punctuation: first;
+  font-style: italic;
+}
+
+.hardcoded--block p {
+  hanging-punctuation: first;
+  font-style: italic;
+}
+
 .pseudo q:before,
 .pseudo q:after {
   hanging-punctuation: first;
 }
 
-.hardcoded q {
-  hanging-punctuation: first;
-  font-style: italic;
+.wrong-char p {
+  hanging-punctuation:first;
 }

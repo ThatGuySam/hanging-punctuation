@@ -10,30 +10,48 @@
   </head>
   <body>
     <article>
+      <h1>Hanging Punctuation tests</h1>
+      <p>The following are examples and tests for working toward v1.0.0 of the <code>hanging-punctuation</code> polyfill.</p>
       <section>
-        <p>Without hanging punctuation:</p>
-        <p><mark>“</mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <h4>Without hanging punctuation</h4>
+        <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
         gravida urna id euismod. Sed consectetur adipiscing vehicula.
         Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
         Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
         vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
-        tincidunt. Donec luctus feugiat enim ac dapibus.<mark>”</mark></p>
+        tincidunt. Donec luctus feugiat enim ac dapibus.”</p>
       </section>
-      <section class="hardcoded">
-        <p>With hanging punctuation (actual character):</p>
-        <p><q><mark>“</mark>Lorem ipsum dolor sit amet,<mark>”</mark></q> consectetur adipiscing elit.
+      <section class="hardcoded hardcoded--inline">
+        <h4>With hanging punctuation applied to <code>q</code> inline</h4>
+        <p><q>“Lorem ipsum dolor sit amet,”</q> consectetur adipiscing elit.
         Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
         gravida urna id euismod. Sed consectetur adipiscing vehicula.
         Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
-        <q><mark>“</mark>This works also in the middle of the text.<mark>”</mark> Try to resize the
+        <q>“This works also in the middle of the text.” Try to resize the
         window to bring this quote to the left border.</q>
         Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
         vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
         tincidunt. Donec luctus feugiat enim ac dapibus.</p>
       </section>
+      <section class="hardcoded hardcoded--block">
+        <h4>With hanging punctuation to a <code>p</code> block</h4>
+        <p>“Lorem ipsum dolor sit amet,” consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        “This works also in the middle of the text.” Try to resize the
+        window to bring this quote to the left border.
+        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
+        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
+        tincidunt. Donec luctus feugiat enim ac dapibus.</p>
+      </section>
+      <section class="hardcoded wrong-char">
+        <h4>With hanging punctuation on the wrong character (should fail)</h4>
+        <p>@Lorem ipsum dolor sit amet.@</p>
+      </section>
       <section class="pseudo">
-        <p>With hanging punctuation (pseudo-element):</p>
+        <h4>With hanging punctuation in a <code>q</code> pseudo-element</h4>
         <p><q>Lorem ipsum dolor sit amet,</q> consectetur adipiscing elit.
         Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
         gravida urna id euismod. Sed consectetur adipiscing vehicula.

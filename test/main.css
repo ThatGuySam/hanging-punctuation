@@ -5,6 +5,17 @@ body {
   line-height: 1.4;
   padding: 0 5em;
   margin: 0;
+  color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Avenir Next", "Avenir", "Verdana", sans-serif;
+}
+
+pre,
+code {
+  font-size: 1.4em;
+  line-height: 0.85;
 }
 
 article {
@@ -13,11 +24,6 @@ article {
   padding: 2em 0;
   border-left: 1px solid tomato;
   border-right: 1px solid tomato;
-
-}
-
-article p {
-  color: #666;
 }
 
 q {
@@ -42,12 +48,4 @@ q:after {
 .hardcoded q:after {
   content: "";
   content: none;
-  background: tomato;
-}
-
-article q {
-}
-
-article mark {
-  background: tomato;
 }
