@@ -79,80 +79,85 @@
       elLastChar = elContent[elContent.length - 1]
       elStyle = window.getComputedStyle(el, null);
 
-      if(rule.value === 'none') {
+      // 1. Replace every character that matches first with a span (defering and using first glyph for now)
+      // 2. Iterate over the spans
+      // 3. Record and cache their width
+      // 4. Remove previous sibling if it is a line break that was inserted
+      // 5. Record their position from the top
+      // 6. Apply negative margin equal to their width if necessary
+      // 7. If the position from the top has changed, insert a line break
 
-      } else if(rule.value === 'first') {
+      if(elFirstChar.match(/\“/) !== null || elLastChar.match(/\”/) !== null) { // Need to replace this with appropriate Unicode range
+        cacheKey = elStyle.fontWeight + ' ' +
+                   elStyle.fontSize + ' ' +
+                   elStyle.fontFamily + ' ' +
+                   elStyle.fontStretch + ' ' +
+                   elStyle.fontStyle;
 
-        // 1. Replace every character that matches first with a span (defering and using first glyph for now)
-        // 2. Iterate over the spans
-        // 3. Record and cache their width
-        // 4. Remove previous sibling if it is a line break that was inserted
-        // 5. Record their position from the top
-        // 6. Apply negative margin equal to their width if necessary
-        // 7. If the position from the top has changed, insert a line break
+        // Detect the desired width upfront
+        if(!(cacheKey in widthCache)) {
+          tmp = document.createElement('span')
+          tmp.innerHTML = elFirstChar;
+          el.appendChild(tmp);
+          widthCache[cacheKey] = tmp.offsetWidth;
+          el.removeChild(tmp);
+        }
+        width = widthCache[cacheKey];
+        tmp = null;
 
-        if(elFirstChar.match(/\“/) !== null) { // Need to replace this with appropriate Unicode range
-          cacheKey = elStyle.fontWeight + ' ' +
-                     elStyle.fontSize + ' ' +
-                     elStyle.fontFamily + ' ' +
-                     elStyle.fontStretch + ' ' +
-                     elStyle.fontStyle;
+        if(rule.value === 'none') {
 
-          // Detect the desired width upfront
-          if(!(cacheKey in widthCache)) {
-            tmp = document.createElement('span')
-            tmp.innerHTML = elFirstChar;
-            el.appendChild(tmp);
-            widthCache[cacheKey] = tmp.offsetWidth;
-            el.removeChild(tmp);
-          }
-          width = widthCache[cacheKey];
-          tmp = null;
+        } else if(rule.value === 'first') {
 
-          // Might need to expose a more fogiving mode under `all`
-          // that works on any quotations, but otherwise follows
-          // the specification under `first`, etc.
+            // Might need to expose a more fogiving mode under `all`
+            // that works on any quotations, but otherwise follows
+            // the specification under `first`, etc.
 
-          if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper')) {
-            elParent.removeChild(el.previousElementSibling);
-          }
-
-          if(typeof el.children[0] !== 'undefined' && el.children[0].hasAttribute('data-hangPunctFirst')) {
-            elSpan = el.children[0];
-          } else {
-            el.innerHTML = el.innerHTML.replace(elFirstChar, '');
-            elSpan = document.createElement('span');
-            elSpan.setAttribute('data-hangPunctFirst', true);
-            elSpan.textContent = elFirstChar;
-            el.insertBefore(elSpan, el.firstChild);
-          }
-
-          // This is the “true” offset in case of multiline elements
-          // see http://stackoverflow.com/q/995838/113195
-          // http://stackoverflow.com/a/18953277/864799
-          left = elSpan.getBoundingClientRect().left;
-
-          // console.log(Math.ceil(left - width), Math.floor(el.getBoundingClientRect().left));
-          if(left - width - 1 <= el.getBoundingClientRect().left) {
-            top = el.getBoundingClientRect().top;
-            elSpan.style.marginLeft = -width + 'px';
-
-            if(top !== el.getBoundingClientRect().top) {
-              var br = document.createElement('br');
-              br.setAttribute('data-hangPunctHelper', true);
-              elParent.insertBefore(br, el);
+            if(el.previousElementSibling && el.previousElementSibling.hasAttribute('data-hangPunctHelper')) {
+              elParent.removeChild(el.previousElementSibling);
             }
 
-          } else {
-            elSpan.style.marginLeft = 0;
-            stylefill.runFills;
-          }
+            if(typeof el.children[0] !== 'undefined' && el.children[0].hasAttribute('data-hangPunctFirst')) {
+              elSpan = el.children[0];
+            } else {
+              el.innerHTML = el.innerHTML.replace(elFirstChar, '');
+              elSpan = document.createElement('span');
+              elSpan.setAttribute('data-hangPunctFirst', true);
+              elSpan.textContent = elFirstChar;
+              el.insertBefore(elSpan, el.firstChild);
+            }
 
-        } else {
-          // First char doesn’t match hanging-punctuation’s rules
+            // This is the “true” offset in case of multiline elements
+            // see http://stackoverflow.com/q/995838/113195
+            // http://stackoverflow.com/a/18953277/864799
+            left = elSpan.getBoundingClientRect().left;
+
+            // console.log(Math.ceil(left - width), Math.floor(el.getBoundingClientRect().left));
+            if(left - width - 1 <= el.getBoundingClientRect().left) {
+              top = el.getBoundingClientRect().top;
+              elSpan.style.marginLeft = -width + 'px';
+
+              if(top !== el.getBoundingClientRect().top) {
+                var br = document.createElement('br');
+                br.setAttribute('data-hangPunctHelper', true);
+                elParent.insertBefore(br, el);
+              }
+
+            } else {
+              elSpan.style.marginLeft = 0;
+              stylefill.runFills;
+            }
+
+          }
+        } else if(rule.value === 'last') {
+          console.log(el.innerHTML);
+
+        } else if((rule.value === 'force-end') || (rule.value === 'allow-end')) {
+          console.warn('Not implemented yet.');
         }
-      } else if((rule.value === 'force-end') || (rule.value === 'allow-end') || (rule.value === 'last')) {
-        console.warn('Not implemented yet.');
+
+      else {
+        // First or last char doesn’t match hanging-punctuation’s rules
       }
 
     }
