@@ -132,7 +132,7 @@
           // http://stackoverflow.com/a/18953277/864799
           left = elSpan.getBoundingClientRect().left;
 
-          console.log(Math.ceil(left - width), Math.floor(el.getBoundingClientRect().left));
+          // console.log(Math.ceil(left - width), Math.floor(el.getBoundingClientRect().left));
           if(left - width - 1 <= el.getBoundingClientRect().left) {
             top = el.getBoundingClientRect().top;
             elSpan.style.marginLeft = -width + 'px';
