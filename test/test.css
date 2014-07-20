@@ -1,15 +1,18 @@
+.issue-1 {
+  width: 589px;
+}
+
 .hardcoded--inline q {
   hanging-punctuation: first;
   font-style: italic;
 }
 
-.issue-1 {
-  width: 589px;
+.hardcoded--right p {
+  text-align: right;
 }
 
-.hardcoded--block p {
-  hanging-punctuation: first;
-  font-style: italic;
+.hardcoded--justify p {
+  text-align: justify;
 }
 
 .pseudo q:before,
@@ -17,8 +20,16 @@
   hanging-punctuation: first;
 }
 
-.wrong-char p {
-  hanging-punctuation:first;
+.first p {
+  hanging-punctuation: first;
+}
+
+.last p {
+  hanging-punctuation: last;
+}
+
+.both p {
+  hanging-punctuation: both;
 }
 
 .allow-end p {

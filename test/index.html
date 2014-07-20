@@ -34,19 +34,7 @@
         vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
         tincidunt. Donec luctus feugiat enim ac dapibus.</p>
       </section>
-      <section class="hardcoded hardcoded--inline issue-1">
-        <h4>With hanging punctuation applied to <code>q</code> inline</h4>
-        <p><q>“Lorem ipsum dolor sit amet,”</q> consectetur adipiscing elit.
-        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
-        gravida urna id euismod. Sed consectetur adipiscing vehicula.
-        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
-        <q>“This works also in the middle of the text.” Try to resize the
-        window to bring this quote to the left border.</q>
-        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
-        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
-        tincidunt. Donec luctus feugiat enim ac dapibus.</p>
-      </section>
-      <section class="hardcoded hardcoded--block">
+      <section class="hardcoded hardcoded--block first">
         <h4>With hanging punctuation to a <code>p</code> block</h4>
         <p>“Lorem ipsum dolor sit amet,” consectetur adipiscing elit.
         Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
@@ -58,7 +46,26 @@
         vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
         tincidunt. Donec luctus feugiat enim ac dapibus.</p>
       </section>
-      <section class="hardcoded wrong-char">
+      <section class="hardcoded hardcoded--inline hardcoded--right last">
+        <h4>With hanging punctuation set to last</h4>
+        <p><q>“Lorem ipsum dolor sit amet consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur,”</q>
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        <q>“This works also in the middle of the text.”<q> Try to resize the
+        window to bring this quote to the left border.
+      </section>
+      <section class="hardcoded hardcoded--inline hardcoded--justify both">
+        <h4>With hanging punctuation set to both</h4>
+        <p><q>“Lorem ipsum dolor sit amet consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur,”</q>
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        <q>“This works also in the middle of the text.”<q> Try to resize the
+        window to bring this quote to the left border.
+      </section>
+
+      <section class="hardcoded first">
         <h4>With hanging punctuation on the wrong character (should fail)</h4>
         <p>@Lorem ipsum dolor sit amet.@</p>
       </section>
@@ -78,7 +85,18 @@
         一勝一負；不知彼，不知己，每戰必殆。
         </p>
       </section>
-
+      <section class="hardcoded hardcoded--inline issue-1">
+        <h4>Issue #1 (failing)</h4>
+        <p><q>“Lorem ipsum dolor sit amet,”</q> consectetur adipiscing elit.
+        Cras sagittis mauris ut nisi cursus eleifend. Quisque consectetur
+        gravida urna id euismod. Sed consectetur adipiscing vehicula.
+        Fusce arcu velit, scelerisque et iaculis eu, posuere quis lacus.
+        <q>“This works also in the middle of the text.” Try to resize the
+        window to bring this quote to the left border.</q>
+        Sed non est eu augue vestibulum malesuada ut non purus. Suspendisse
+        vel feugiat turpis. Sed consectetur nibh ut ligula dignissim
+        tincidunt. Donec luctus feugiat enim ac dapibus.</p>
+      </section>
       <section class="pseudo">
         <h4>With hanging punctuation in a <code>q</code> pseudo-element (failing)</h4>
         <p><q>Lorem ipsum dolor sit amet,</q> consectetur adipiscing elit.
