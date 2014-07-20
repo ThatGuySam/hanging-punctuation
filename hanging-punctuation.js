@@ -135,23 +135,18 @@
           console.log(Math.ceil(left - width), Math.floor(el.getBoundingClientRect().left));
           if(left - width - 1 <= el.getBoundingClientRect().left) {
             top = el.getBoundingClientRect().top;
-            elSpan.style.outline = '1px solid green';
             elSpan.style.marginLeft = -width + 'px';
 
-            // if(top !== el.getBoundingClientRect().top) {
-            //   var br = document.createElement('br');
-            //   br.setAttribute('data-hangPunctHelper', true);
-            //   elParent.insertBefore(br, el);
-            // }
+            if(top !== el.getBoundingClientRect().top) {
+              var br = document.createElement('br');
+              br.setAttribute('data-hangPunctHelper', true);
+              elParent.insertBefore(br, el);
+            }
 
           } else {
-            console.log('hi');
-            elSpan.style.outline = '1px solid blue';
             elSpan.style.marginLeft = 0;
             stylefill.runFills;
           }
-
-          // }
 
         } else {
           // First char doesn’t match hanging-punctuation’s rules
