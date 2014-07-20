@@ -20,3 +20,13 @@
 .wrong-char p {
   hanging-punctuation:first;
 }
+
+.allow-end p {
+   text-align: justify;
+   hanging-punctuation: allow-end;
+}
+
+.force-end p {
+   text-align: justify;
+   hanging-punctuation: force-end;
+}
