@@ -1,5 +1,5 @@
 > _Hanging punctuation_ prevents quotations and other marks from taking a bite out of the crisp left edge of a text block. Make a clean edge by pushing the quotation marks into the margin.<br/>
-> &nbsp;&nbsp;&nbsp;&nbsp;—Ellen Lupton, _Thinking with Type, 2nd Revised and Expanded Edition_
+> &nbsp;&nbsp;&nbsp;&nbsp;—Ellen Lupton, _Thinking with Type, 2<sup>nd</sup> Revised and Expanded Edition_
 
 # Hanging Punctuation
 
@@ -89,7 +89,7 @@ npm test
 
 ## Contributing
 
-Thanks for considering contributing! There’s information about how to [get started with Default here](CONTRIBUTING.md).
+Thanks for considering contributing! There’s information about how to [get started with Hanging Punctuation here](CONTRIBUTING.md).
 
 ## License
 
