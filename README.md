@@ -1,27 +1,28 @@
-<!--
-[![A great header image you designed, or collaborated on with a designer you work with. It’ll look best when it’s 728px wide, @2x for hi-dpi devices.](preview.png)](https://github.com/kennethormandy/hanging-punctuation)
-
-***
--->
+> _Hanging punctuation_ prevents quotations and other marks from taking a bite out of the crisp left edge of a text block. Make a clean edge by pushing the quotation marks into the margin.<br/>
+> &nbsp;&nbsp;&nbsp;&nbsp;—Ellen Lupton, _Thinking with Type, 2nd Revised and Expanded Edition_
 
 # Hanging Punctuation
 
 A polyfill for proper [hanging punctuation](http://www.w3.org/TR/css-text-3/#hanging-punctuation) in CSS.
 
-Soon, you’ll be able to apply proper hanging punctuation in CSS without any JavaScript:
+The `hanging-punctuation` property should be part of CSS in the future, but no browser supports in yet. In the meantime, this [Stylefill](https://github.com/nathanford/stylefill/) polyfills the missing features through the exact same CSS:
 
 ```css
 p {
   hanging-punctuation: first;
+  /* Dynamically hang punctuation
+     on the left margin. */
 }
 
 html[lang="zh-Hans"] {
   text-align: justify;
   hanging-punctuation: allow-end;
+  /* Allow ending punctuation
+     to hang even when justified. */
 }
 ```
 
-In the meantime, this [Stylefill](https://github.com/nathanford/stylefill/) polyfills the missing features through the exact same CSS. Now, the first glyph only hangs if it is at the beginning of a line, correcting
+Now, the first glyph only hangs if it is at the beginning of a line. This corrects
 
 ```
 “Lorem  ipsum  dolor  sit  amet, consectetuer
@@ -57,13 +58,11 @@ To install Hanging Punctuation, add it to your project or use the package manage
 npm install kennethormandy/hanging-punctuation
 ```
 
-Now it’s ready to include through your task runner orbuild tool, or you may just reference the files in your HTML:
+Now it’s ready to include through your task runner or build tool, or you may just reference the files in your HTML:
 
 ```html
 <script src="node_modules/hanging-punctuation/hanging-punctuation.min.js"></script>
 ```
-
-<!--
 
 ##### With Component
 
@@ -77,7 +76,16 @@ component install kennethormandy/hanging-punctuation
 bower install hanging-punctuation
 ```
 
--->
+## Running locally
+
+To run the tests locally:
+
+```bash
+git clone https://github.com/kennethormandy/hanging-punctuation
+npm install
+npm test
+# Now visit http://127.0.0.1:8080/test
+```
 
 ## Contributing
 
