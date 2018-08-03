@@ -6,7 +6,7 @@
 
 // Modified for ES6
 
-require('stylefill/js/stylefill')
+const stylefill = require('stylefill/js/stylefill')
 
 export default function () {
 
